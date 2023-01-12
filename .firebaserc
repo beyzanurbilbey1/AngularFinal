@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "emlak-947cd": {
+      "hosting": {
+        "emlak1": [
+          "emlak-947cd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "emlak-947cd"
+  }
+}

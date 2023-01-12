@@ -1,0 +1,112 @@
+<div class="container" >
+
+
+  <div class="row w-25">
+
+    <button class="btn btn-dark mt-5 " (click)="Ekle(modalEkleDuzenle)"  >İlan Ekle</button>
+  </div>
+
+
+  <div class="row ">
+    <div class="card mx-2 mt-5" style="width: 18rem;" *ngFor="let ilan of ilanlar">
+      <img [src]="[ilan.resim]" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{ilan.baslik}}</h5>
+        <h6 class="card-text"> Fiyat : {{ilan.fiyat | currency: "TRY "}}</h6>
+        <h6 class="card-title"> Bulunduğu Kat : {{ilan.kat}}</h6>
+        <h6 class="card-title"> Oda Sayısı : {{ilan.odaSayi}}</h6>
+        <h6 class="card-title">{{ilan.islem}}</h6>
+        <a class="btn btn-dark" [routerLink]="['/detaylar',ilan.ilanId]">incele</a>
+        <button class="btn btn-success m-3" (click)="Duzenle(ilan, modalEkleDuzenle)">Düzenle</button>
+        <button class="btn btn-danger" (click)="Sil(ilan, modalSil)">Sil</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="modal" tabindex="-1" #modalEkleDuzenle>
+      <div class="modal-dialog">
+        <form [formGroup]="frm" (ngSubmit)="IlanEkleDuzenle()">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">{{modalBaslik}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" class="form-control" formControlName="ilanId">
+              <div class="form-group">
+                <label>İlan Başlığı</label>
+                <input type="text" class="form-control" formControlName="baslik">
+                <label>İlan Açıklaması</label>
+                <input type="text" class="form-control" formControlName="aciklama">
+                <label>Fiyat</label>
+                <input type="text" class="form-control" formControlName="fiyat">
+                <label>m2</label>
+                <input type="text" class="form-control" formControlName="m2">
+                <label>Oda Sayısı</label>
+                <select class="form-control" formControlName="odaSayi">
+                  <option value="1+1">1+1 </option>
+                  <option value="2+1">2+1 </option>
+                  <option value="3+1">3+1 </option>
+                  <option value="4+1">4+1 </option>
+
+                </select>
+                <label>Bulunduğu Kat</label>
+                <input type="text" class="form-control" formControlName="kat">
+                <label>Konum</label>
+                <input type="text" class="form-control" formControlName="konum">
+                <label>İşlem</label>
+                <select class="form-control" formControlName="islemadi">
+                  <option value="satilik">Satılık </option>
+                  <option value="kiralik">Kiralık </option>
+                </select>
+                <label>Resim</label>
+                <input type="text" class="form-control" formControlName="resim">
+                <label>Resim</label>
+                <label></label>
+                <input type="text" class="form-control" formControlName="resim2">
+                <label>Resim</label>
+                <label></label>
+                <input type="text" class="form-control" formControlName="resim3">                
+                <label>Bilgi</label>
+                <input type="text" class="form-control" formControlName="bilgi1">
+                <label>Bilgi</label>
+                 <input type="text" class="form-control" formControlName="bilgi2">
+                <label>İlan Kategorisi</label>              
+                <select class="form-control" formControlName="kategoriId">
+                  <option [value]="kat.kategoriId" *ngFor="let kat of kategoriler">{{kat.kategoriAdi}}</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+
+              <input type="submit" class="btn btn-outline-primary" value="Kaydet">
+              <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Kapat</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" #modalSil>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title">{{modalBaslik}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <h6 *ngIf="secIlan">{{secIlan.ilanId}} Adlı İlan Silinecektir Onaylıyor musunuz?</h6>
+          </div>
+          <div class="modal-footer">
+
+            <button class="btn btn-outline-danger" (click)="IlanSil()">Sil</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Kapat</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-4">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade mt-10" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img [src]="secIlan.resim" class="d-block gap-2 mx-auto col-5" alt="...">
+          </div>
+          <div class="carousel-item active">
+            <img [src]="secIlan.resim2" class="d-block gap-2 mx-auto col-5" alt="...">
+          </div>
+          <div class="carousel-item active">
+            <img [src]="secIlan.resim3" class="d-block gap-2 mx-auto col-5" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-8">
+      <div><strong>{{secIlan.fiyat | currency: "TRY "}}</strong> </div>
+      <h4>{{secIlan.baslik}}</h4>
+      <h6>{{secIlan.aciklama}}</h6>
+      <h6>{{secIlan.konum}}</h6>
+      <h6>{{secIlan.m2}}</h6>
+      <h6>{{secIlan.bilgi1}}</h6>
+      <h6>{{secIlan.bilgi2}}</h6>
+    </div>
+  </div>
+
+</div>

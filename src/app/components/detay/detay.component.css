@@ -1,0 +1,23 @@
+.bass{
+    text-align: center;
+}
+.mkn{
+    text-align: center;
+}
+.fyt{
+    text-align: center;
+}
+
+.ARKA{
+    
+    background-color: rgb(90, 88, 88);
+    margin-top: 20px;
+    color: aliceblue;
+    width:1000px;
+    height: 750px;
+    text-align:left;
+    display: flex;
+}
+.ic{
+    justify-content: space-between;
+}
